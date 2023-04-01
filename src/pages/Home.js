@@ -15,6 +15,7 @@ import service3 from "../images/service-03.png";
 import service4 from "../images/service-04.png";
 import service5 from "../images/service-05.png";
 import mainBanner from "../images/main-banner.jpg";
+import mainBanner2 from "../images/main-banner-1.jpg";
 import smallBanner1 from "../images/catbanner-01.jpg";
 import smallBanner2 from "../images/catbanner-02.jpg";
 import smallBanner3 from "../images/catbanner-03.jpg";
@@ -35,6 +36,12 @@ import ProductCard from "../component/ProductCard";
 import Specialproducts from "../component/Specialproducts";
 import famous1 from "../images/watch.jpg";
 import famous2 from "../images/macbook.webp";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import "swiper/css/pagination";
+// import "swiper/css/navigation";
+
+import { Autoplay, Pagination, Navigation } from "swiper";
 
 const Home = () => {
   return (
@@ -43,7 +50,22 @@ const Home = () => {
         <div className="container-xxl">
           <div className="row">
             <div className="col-6">
-              <div className="main-banner position-relative">
+            
+               <Swiper
+        spaceBetween={30}
+        centeredSlides={true}
+        autoplay={{
+          delay: 2500,
+          disableOnInteraction: false,
+        }}
+        pagination={{
+          clickable: false,
+        }}
+        navigation={true}
+        modules={[Autoplay, Pagination, Navigation]}
+        className="mySwiper"
+      >
+        <SwiperSlide> <div className="main-banner position-relative">
                 <img
                   src={mainBanner}
                   className="img-fluid rounded-3"
@@ -58,7 +80,32 @@ const Home = () => {
                   </p>
                   <Link className="button">BUY NOW</Link>
                 </div>
-              </div>
+              </div> </SwiperSlide>
+        <SwiperSlide>
+          
+         
+                
+                <div className="main-banner position-relative">
+                <img
+                  src={mainBanner2}
+                  className="img-fluid rounded-3"
+                  alt="main-banner"
+                />
+                <div className="main-banner-content position-absolute">
+                  <h4>SUPERCHARGED FOR PROS.</h4>
+                  <h5>iPad S13+ Pro.</h5>
+                  <p>
+                    From $999.00 <br />
+                    or $41.62/mo.
+                  </p>
+                  <Link className="button">BUY NOW</Link>
+                </div>
+              </div> 
+                
+                
+                </SwiperSlide>
+      </Swiper>
+
             </div>
             <div className="col-6">
               <div className="d-flex gap-10 flex-wrap justify-content-between align-items-center">
